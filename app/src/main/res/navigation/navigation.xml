@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.examapp.screens.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_choiceOptionsFragment"
+            app:destination="@id/choiceOptionsFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_editAllThemesFragment"
+            app:destination="@id/editAllThemesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiceOptionsFragment"
+        android:name="com.example.examapp.screens.choice.ChoiceOptionsFragment"
+        android:label="fragment_choice_options"
+        tools:layout="@layout/fragment_choice_options" >
+        <action
+            android:id="@+id/action_choiceOptionsFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAllThemesFragment"
+        android:name="com.example.examapp.screens.editThemes.EditAllThemesFragment"
+        android:label="fragment_edit_one_theme"
+        tools:layout="@layout/fragment_edit_one_theme" >
+        <action
+            android:id="@+id/action_editAllThemesFragment_to_editOneThemeFragment"
+            app:destination="@id/editOneThemeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.examapp.screens.game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="choice_theme_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_gameFragment_to_finishGameFragment"
+            app:destination="@id/finishGameFragment" />
+        <argument
+            android:name="time"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishGameFragment"
+        android:name="com.example.examapp.screens.finishGame.FinishGameFragment"
+        android:label="FinishGameFragment" >
+        <action
+            android:id="@+id/action_finishGameFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+        <argument
+            android:name="score"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editOneThemeFragment"
+        android:name="com.example.examapp.screens.editOneTheme.EditOneThemeFragment"
+        android:label="EditOneThemeFragment" >
+        <argument
+            android:name="editThemeId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
